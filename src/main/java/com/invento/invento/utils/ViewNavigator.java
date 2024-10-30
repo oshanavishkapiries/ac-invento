@@ -3,17 +3,16 @@ package com.invento.invento.utils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
 
 public class ViewNavigator {
 
+    @Setter
     private static Stage stage;
-
-    public static void setStage(Stage primaryStage) {
-        stage = primaryStage;
-    }
 
     public static void navigate(String pageName, boolean resizable, boolean maximize) {
         try {
@@ -22,6 +21,8 @@ public class ViewNavigator {
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
+            stage.getIcons().add(new Image(ViewNavigator.class.getResource("/assets/img/icon.png").toString()));
+            stage.setTitle("Invento");
             stage.setResizable(resizable);
             stage.setMaximized(maximize);
             stage.show();

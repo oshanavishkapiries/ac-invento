@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.animation.PauseTransition;
@@ -27,10 +28,11 @@ public class Appinitializer extends Application {
 
         Stage splashStage = new Stage();
         splashStage.initStyle(StageStyle.UNDECORATED);
+        splashStage.getIcons().add(new Image(ViewNavigator.class.getResource("/assets/img/icon.png").toString()));
         splashStage.setScene(new Scene(splashRoot));
         splashStage.show();
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
         delay.setOnFinished(event -> {
             splashStage.close();
             ViewNavigator.setStage(stage);
